@@ -27,10 +27,10 @@ var RequestErrorMessage = map[string]string{
 
 func main() {
     var (
-        request RequestValidateVoucher
+        request Request
     )
 
-    errorMessage := goutils.Validation(request, RequestErrorMessage)
+    errorMessage := helper.ValidateStruct(request, RequestErrorMessage)
 
     a, _ := json.MarshalIndent(errorMessage, "", "\t")
 	fmt.Print(string(a))
